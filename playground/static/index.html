@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Explore RingTrunk voice agents with Pipecat and LiveKit Agents. View the code and fixed prompt, explore inbound and outbound call modes, and download an example for LiveKit Cloud.">
+    <title>Voice Agent Playground · RingTrunk</title>
+    <link rel="icon" type="image/svg+xml" href="/static/brand/ringtrunk-mark.svg">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to playground</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="https://ringtrunk.com" class="brand" aria-label="RingTrunk home"><img src="/static/brand/ringtrunk-lockup-light.png" alt="RingTrunk" width="154" height="37"></a>
+        <span class="header-divider" aria-hidden="true"></span>
+        <span class="product-name">Playground <span class="beta">PREVIEW</span></span>
+        <nav aria-label="Main navigation">
+          <a href="https://ringtrunk.com/docs" target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/Zingaro-Ai/ringtrunk-livekit-example" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="local-status"><span class="status-dot"></span> Local preview</div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="little-cross" aria-hidden="true">✳</span> BUILT FOR VOICE DEVELOPERS</p>
+          <h1 id="page-title">Your agent.<br>A <span>real phone call.</span></h1>
+          <p class="hero-description">Explore two frameworks. See exactly how they work.<br class="desktop-break"> Try an inbound or outbound call. Take the code with you.</p>
+        </div>
+        <div class="hero-visual" aria-label="Inbound call path: your phone, RingTrunk, LiveKit Cloud, then your AI agent">
+          <div class="visual-label"><span class="status-dot"></span> THE INBOUND CALL PATH</div>
+          <div class="route">
+            <div class="route-node"><div class="route-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 5h4M11 18.5h2"/></svg></div><b>Your phone</b><small>Dial in</small></div>
+            <span class="route-line" aria-hidden="true">→</span>
+            <div class="route-node"><div class="route-icon ring-icon"><img src="/static/brand/ringtrunk-mark.svg" alt="" width="31" height="31"></div><b>RingTrunk</b><small>Phone number</small></div>
+            <span class="route-line" aria-hidden="true">→</span>
+            <div class="route-node"><div class="route-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 17.7 8a5 5 0 0 1 .3 10Z"/></svg></div><b>LiveKit Cloud</b><small>Audio transport</small></div>
+            <span class="route-line" aria-hidden="true">→</span>
+            <div class="route-node"><div class="route-icon agent-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></div><b>Your agent</b><small>Pipecat / LiveKit</small></div>
+          </div>
+          <div class="visual-footer"><span>Your choice of framework. Both call directions.</span><span class="inbound-label">INBOUND + OUTBOUND</span></div>
+        </div>
+      </section>
+
+      <section class="framework-section" aria-labelledby="framework-heading">
+        <div class="section-heading"><h2 id="framework-heading"><span class="step-number">01</span> Choose your framework</h2><span class="section-hint">Python · LiveKit Cloud · Same speech providers</span></div>
+        <div class="frameworks" role="group" aria-label="Agent framework">
+          <button class="framework-card selected" data-framework="pipecat" aria-pressed="true" type="button">
+            <span class="framework-icon pipe-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 8h7v7h11M7 24h7v-9M25 8v16"/><circle cx="7" cy="8" r="3"/><circle cx="7" cy="24" r="3"/><circle cx="25" cy="8" r="3"/><circle cx="25" cy="24" r="3"/></svg></span>
+            <span class="framework-copy"><span class="framework-title">Pipecat <span class="framework-tag">PIPELINE</span></span><span class="framework-description">Follow every step from speech to response.</span></span>
+            <span class="selection-indicator" aria-hidden="true">✓</span>
+          </button>
+          <button class="framework-card" data-framework="livekit-agents" aria-pressed="false" type="button">
+            <span class="framework-icon livekit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 11v10M12 6v20M20 9v14M26 13v6"/></svg></span>
+            <span class="framework-copy"><span class="framework-title">LiveKit Agents <span class="framework-tag">NATIVE SDK</span></span><span class="framework-description">Build around a native LiveKit agent session.</span></span>
+            <span class="selection-indicator" aria-hidden="true">✓</span>
+          </button>
+        </div>
+      </section>
+
+      <div id="load-error" class="error-banner" role="alert" hidden><span>Could not load the examples. Check that the local server is running.</span><button id="retry-load" type="button">Try again</button></div>
+
+      <section id="workspace" class="workspace" aria-label="Code and prompt playground" tabindex="-1">
+        <div class="source-column">
+          <div class="section-heading"><h2><span class="step-number">02</span> Look under the hood</h2><span class="read-only-label"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="9" width="10" height="8" rx="2"/><path d="M7 9V6a3 3 0 0 1 6 0v3"/></svg> Read-only code</span></div>
+          <div class="code-window" id="code-window" aria-busy="true">
+            <div class="code-toolbar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span id="project-label">ringtrunk-pipecat</span><span class="code-language" id="code-language">PYTHON</span></div>
+            <div class="code-body">
+              <aside class="file-sidebar" aria-label="Example files"><span class="file-sidebar-title">EXPLORER</span><div id="file-list" class="file-list"></div></aside>
+              <div class="editor">
+                <div class="editor-toolbar"><div class="current-file"><span class="python-dot" aria-hidden="true"></span><span id="filename">bot.py</span><span id="customized-badge" class="customized-badge" hidden>fixed prompt</span></div><button id="copy-code" class="copy-button" type="button" disabled aria-label="Copy displayed file"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h2"/></svg><span>Copy</span></button></div>
+                <pre id="source-scroll" class="source-scroll" tabindex="0" aria-label="Read-only source code"><code id="source-code">Loading example…</code></pre>
+              </div>
+            </div>
+            <div class="code-status"><span><span class="code-status-dot"></span><span id="sdk-version">Pipecat 1.9.0</span></span><span>Python 3.12+<span class="status-separator">/</span><span id="line-count">— lines</span></span></div>
+          </div>
+          <div class="stack-strip" aria-label="Speech providers"><span class="stack-label">THE SPEECH STACK</span><span><i class="stack-dot deepgram"></i>Deepgram <small>STT</small></span><span class="stack-arrow" aria-hidden="true">→</span><span><i class="stack-dot openai"></i>OpenAI <small>LLM</small></span><span class="stack-arrow" aria-hidden="true">→</span><span><i class="stack-dot cartesia"></i>Cartesia <small>TTS</small></span></div>
+          <div class="download-card"><div><h3>Make it yours.</h3><p>Full source, the demo prompt, and setup for both call directions.</p></div><button id="download-zip" class="primary-button" type="button" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9m-4-4 4 4 4-4M3 13v4h14v-4"/></svg><span>Download ZIP</span></button><span class="download-note">Includes credential placeholders · <span id="file-count">—</span> files · MIT license</span></div>
+        </div>
+
+        <div class="controls-column">
+          <div class="section-heading"><h2><span class="step-number">03</span> See the instructions. Try a call.</h2></div>
+          <section class="prompt-card" aria-labelledby="prompt-heading">
+            <div class="card-heading"><h3 id="prompt-heading">Agent prompt</h3><span class="editable-tag">Read-only</span></div>
+            <label class="field-label" for="prompt">System instructions · AI receptionist</label>
+            <textarea id="prompt" spellcheck="false" readonly aria-readonly="true" aria-describedby="prompt-help" placeholder="Loading the fixed demo prompt…"></textarea>
+            <p id="prompt-help" class="prompt-help">The demo uses a fixed prompt. You can read it here or in <button id="view-config" type="button">agent-config.json ↗</button>. Edit your own copy after downloading.</p>
+          </section>
+
+          <section class="phone-card" aria-labelledby="phone-heading">
+            <div class="card-heading"><h3 id="phone-heading"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 3 5-2 2a15 15 0 0 0 7 7l2-2 5 3c-1 4-4 4-7 3A22 22 0 0 1 3 10C2 7 2 4 6 3Z"/></svg> Try it by phone</h3><span class="pending-tag">PENDING SETUP</span></div>
+            <div class="call-mode-tabs" role="tablist" aria-label="Call direction"><button id="inbound-tab" role="tab" type="button" data-call-mode="inbound" class="active" aria-selected="true" aria-controls="inbound-panel">Call the agent <small>Inbound</small></button><button id="outbound-tab" role="tab" type="button" data-call-mode="outbound" aria-selected="false" aria-controls="outbound-panel" tabindex="-1">Call my phone <small>Outbound</small></button></div>
+            <div id="inbound-panel" role="tabpanel" aria-labelledby="inbound-tab">
+              <p class="call-description">Call this number to speak with the demo agent.</p>
+              <div class="phone-placeholder"><div><strong id="demo-number" class="demo-number">Number pending selection</strong><span id="demo-allocation">3 channels requested · allocation pending</span></div></div>
+              <button class="call-button" type="button" disabled>Phone line not connected yet <span aria-hidden="true">↗</span></button>
+            </div>
+            <div id="outbound-panel" role="tabpanel" aria-labelledby="outbound-tab" hidden>
+              <p class="call-description">Receive a demo call from <strong id="outbound-caller-id">the RingTrunk demo number</strong>.</p>
+              <label class="field-label" for="callback-phone">Your Indian mobile number</label>
+              <div class="phone-input"><span>+91</span><input id="callback-phone" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="16" placeholder="Your 10-digit number" aria-describedby="callback-validation callback-help"></div>
+              <p id="callback-validation" class="field-error" role="status" hidden>Enter a 10-digit Indian mobile number.</p>
+              <p id="callback-help" class="callback-help">First verify your mobile by SMS, then press “Call my phone”. The selected AI agent will call this number for up to two minutes.</p>
+              <label class="phone-consent"><input id="phone-consent" type="checkbox"><span>I agree to receive a verification SMS. Google processes this number for authentication and abuse prevention.</span></label>
+              <a id="phone-preview-link" class="phone-preview-link" hidden>Open the local SMS preview</a>
+              <div id="phone-recaptcha"></div>
+              <button id="send-code" class="call-button" type="button" disabled>Send verification code</button>
+              <form id="phone-code-form" class="phone-code-form" hidden>
+                <label class="field-label" for="phone-code">Six-digit SMS code</label>
+                <input id="phone-code" class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" aria-describedby="phone-status" placeholder="000000" required>
+                <button id="verify-code" class="call-button" type="submit" disabled>Verify number</button>
+              </form>
+              <div id="phone-verified" class="phone-verified" hidden><span aria-hidden="true">✓</span><div><strong>Mobile verified</strong><span id="verified-number"></span></div></div>
+              <button id="change-phone" class="change-phone" type="button" hidden>Use a different number</button>
+              <p id="phone-status" class="phone-status" role="status" aria-live="polite"></p>
+              <button id="request-callback" class="call-button" type="button" disabled>Call my phone</button>
+              <button id="cancel-callback" class="call-button" type="button" hidden>End call</button>
+              <p id="call-status" class="phone-status" role="status" aria-live="polite"></p>
+            </div>
+            <p id="phone-note" class="phone-note">Verification SMS is sent only when you request a code.</p>
+          </section>
+        </div>
+      </section>
+
+      <section class="setup-section" aria-labelledby="setup-heading">
+        <div class="section-heading"><h2 id="setup-heading">From ZIP to your phone line</h2><span class="section-hint">The full commands are in your download’s README.</span></div>
+        <div class="setup-grid">
+          <article><span class="setup-number">1</span><h3>Add your credentials</h3><p>Unzip the example. Add your own LiveKit Cloud and speech provider keys to the included environment template.</p></article>
+          <article><span class="setup-number">2</span><h3>Connect RingTrunk</h3><p>Configure an inbound trunk and dispatch rule. Point your RingTrunk number to your LiveKit Cloud SIP endpoint.</p></article>
+          <article><span class="setup-number">3</span><h3>Run it. Then ring it.</h3><p id="run-instructions">Start the Pipecat webhook server, connect it in LiveKit Cloud, and call your RingTrunk number.</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="faq-heading"><h2 id="faq-heading">A few things to know.</h2><div class="faq-items">
+        <details><summary>What can I change in the playground?</summary><p>You can choose a framework and call direction. Both the code and prompt are read-only. Download the example to edit and run your own version with your own credentials.</p></details>
+        <details><summary>Do both examples use LiveKit Cloud?</summary><p>Yes. LiveKit Cloud carries the phone audio for both. Pipecat runs an explicit speech pipeline; LiveKit Agents runs a native agent session. Both examples use Deepgram, OpenAI, and Cartesia.</p></details>
+        <details><summary>Can the playground call my phone?</summary><p>Yes. In “Call my phone”, verify your mobile by SMS, then press the call button. Your selected AI agent calls only that verified number using the fixed prompt. Calls last up to two minutes, with three calls per number per day.</p></details>
+        <details><summary>What is included in a download?</summary><p>Agent source, the fixed demo prompt, pinned direct dependencies, credential placeholders, inbound and outbound trunk templates, an outbound call script, a setup README, and the MIT license. Your demo number and real credentials are never included.</p></details>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div><img src="/static/brand/ringtrunk-mark.svg" alt="" width="20" height="20"><span>RingTrunk <span class="footer-muted">/</span> Built for the way you build.</span></div><span>Local preview <span class="footer-muted">·</span> Verified mobile calls</span></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <noscript><div class="noscript">Enable JavaScript to switch examples, view call modes, and download a ZIP.</div></noscript>
+  </body>
+</html>

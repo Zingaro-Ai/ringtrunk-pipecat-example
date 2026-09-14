@@ -1,0 +1,14 @@
+{
+  "name": "ringtrunk-playground-browser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:auth": "esbuild playground/browser/firebase-phone.js --bundle --format=esm --target=es2022 --minify --legal-comments=linked --outfile=playground/static/vendor/firebase-phone.js"
+  },
+  "dependencies": {
+    "firebase": "12.19.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "trunk": {
+    "name": "RingTrunk outbound demo",
+    "address": "pstn.ringtrunk.com",
+    "transport": "SIP_TRANSPORT_TCP",
+    "destination_country": "in",
+    "numbers": ["9XXXXXXXXX"],
+    "auth_username": "TRxxxxxxxxxxxxxxxx",
+    "auth_password": "YOUR_RINGTRUNK_SIP_PASSWORD"
+  }
+}

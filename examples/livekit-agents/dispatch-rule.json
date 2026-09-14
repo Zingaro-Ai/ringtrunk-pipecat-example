@@ -1,0 +1,12 @@
+{
+  "name": "RingTrunk LiveKit Agents inbound",
+  "trunk_ids": ["<YOUR_LIVEKIT_INBOUND_TRUNK_ID>"],
+  "rule": {
+    "dispatchRuleIndividual": {
+      "roomPrefix": "ringtrunk-livekit-"
+    }
+  },
+  "room_config": {
+    "agents": [{"agent_name": "ringtrunk-livekit-demo"}]
+  }
+}

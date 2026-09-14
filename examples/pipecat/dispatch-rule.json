@@ -1,0 +1,9 @@
+{
+  "name": "RingTrunk Pipecat inbound",
+  "trunk_ids": ["<YOUR_LIVEKIT_INBOUND_TRUNK_ID>"],
+  "rule": {
+    "dispatchRuleIndividual": {
+      "roomPrefix": "ringtrunk-pipecat-"
+    }
+  }
+}

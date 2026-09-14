@@ -1,0 +1,25 @@
+[project]
+name = "ringtrunk-playground"
+version = "0.1.0"
+description = "Local RingTrunk playground for inbound Pipecat and LiveKit Agents examples"
+requires-python = ">=3.12"
+dependencies = [
+    "cachecontrol==0.14.4",
+    "fastapi==0.136.0",
+    "google-auth[requests]==2.58.0",
+    "httpx==0.28.1",
+    "livekit-api==1.2.1",
+    "uvicorn==0.45.0",
+]
+
+[dependency-groups]
+dev = [
+ "ruff==0.15.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
