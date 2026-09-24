@@ -124,6 +124,12 @@ Every SIP response and what to change is listed at
 - [Connect LiveKit Cloud to an Indian phone number](https://ringtrunk.com/docs/livekit-cloud)
 - [RingTrunk documentation](https://ringtrunk.com/docs)
 
+Other RingTrunk examples:
+
+- [ringtrunk-livekit-agents-example](https://github.com/Zingaro-Ai/ringtrunk-livekit-agents-example): a LiveKit Agents voice agent, inbound and outbound
+- [ringtrunk-openai-sip-example](https://github.com/Zingaro-Ai/ringtrunk-openai-sip-example): calls answered by OpenAI's Realtime API over SIP, no LiveKit
+- [ringtrunk-vapi-integration](https://github.com/Zingaro-Ai/ringtrunk-vapi-integration): a Vapi assistant on an Indian number
+
 ## License
 
 MIT. Copyright (c) 2026 Zingaro AI Private Limited.
